@@ -1,151 +1,102 @@
-//#include <iostream>
+//#define _CRT_NONSTDC_NO_WARNINGS
+//#include<stdio.h>
+//#include<string>
+//#include<iostream>
 //#include <windows.h>
 //
 //using namespace std;
+////объявление структуры
+//typedef struct student {
+//	int rno;
+//	char name[20]; //объявления члена структуры
+//	char surname[20];
+//	char second_name[20];
+//	struct subject { //структура внутри струкуры
+//		int scode;
+//		char name[20];
+//		int mark;
+//	}sub[3]; //объявление массива в структуре
+//	int total;
+//	float per;
+//}student;
 //
-//int _stateMenu,reg,con;
+//void sort_on_screen() {
+//	student* s, s1;
+//	FILE* fp;
+//	fp = fopen("mystudents1.txt", "r");
+//	fseek(fp, 0, SEEK_END);
+//	int n = ftell(fp) / sizeof(student);
+//	int i, j;
+//	rewind(fp);
+//	s = (student*)calloc(n, sizeof(student));
+//	for (i = 0; i < n; i++)
+//		fread(&s[i], sizeof(student), 1, fp);
 //
-//void StartMenu() {
-//	cout << "Добро пожаловать в нашу ТЕлеКомпУ" << endl;
-//	cout << "Вы уже были зарегистрированны у нас?(если да-выберите 'Продолжить')";
-//	cout << ",если нет-выберите 'Регистрация'" << endl
-//		<< "(1) Продолжить" << endl
-//		<< "(2) Регистрация" << endl
-//		<< "(0) Ошиблись компанией" << endl
-//		<< "Ваш выбор: ";
-//	cin >> _stateMenu;
-//}
-//void Regist() {
-//	cout << "Добро пожаловать в нашу ТЕлеКомпУ" << endl;
-//	cout << "Пройдите регистрацию(по нажатию открывается ввод информации)" << endl
-//		<< "(1) Контактное лицо" << endl
-//		<< "(2) Телефон" << endl
-//		<< "(3) Банковские реквизиты" << endl
-//		<< "(4) Закончить/Отменить регистрацию"<< endl
-//		<< "Ваш выбор: ";
-//	cin >> reg;
-//}
-//void Continue() {
-//	
-//	cout << "Здравствуйте" << endl;
-//	cout << "Выберите куда и когда поместить вашу рекламу" << endl
-//		<< "(1) Выбор даты" << endl
-//		<< "(2) Выбор передачи" << endl
-//		<< "(3) Ввод длительности рекламы" << endl
-//		<< "После введения информации - жмите продолжить" << endl
-//		<< "(4) Продолжить" << endl
-//		<< "(5) Назад" << endl
-//		<< "(0) Закончить/Отменить Заказ"<< endl
-//		<< "Ваш выбор: ";
-//	cin >> con;
-//}
-//void Info() {
-//	cout << "Рекламная минута для вас будет стоить:" << endl
-//		<< "99999$"<<endl;
-//}
-///// <summary>
-///// ////////////////////
-///// </summary>
-//void dop() {
-//
-//}
-//
-//int main()
-//{
-//	setlocale(LC_ALL, "rus");
-//	StartMenu();
-//	do {
-//
-//		switch (_stateMenu)
-//		{
-//		case 1:
-//			Continue();
-//			do  {
-//
-//				switch (con)
-//				{
-//				case 1:
-//					cout << endl;
-//					cout << "Дата записана" << endl<<endl;
-//					Continue();
-//					break;
-//				case 2:
-//					cout << endl;
-//					cout << "Передача записана" << endl<<endl;
-//					Continue();
-//					break;
-//				case 3:
-//					cout << endl;
-//					cout << "Длительность записана" << endl<<endl;
-//					Continue();
-//					break;
-//				case 4:
-//					cout << endl;
-//					Info();
-//					return 0;
-//				case 5:
-//					StartMenu();
-//					break;
-//				case 6: 
-//					dop();///////
-//					break;
-//				default:
-//					system("cls");
-//					cout << "Неверно введен номер действия!" << endl;
-//					system("pause");
-//					system("cls");
-//					StartMenu();
-//					break;
-//				}
-//			} while (con != 5);
-//			break;
-//		case 2:
-//			Regist();
-//			do  {
-//
-//				switch (reg)
-//				{
-//				case 1:
-//					cout << endl;
-//					cout << "Контактное лицо записано" << endl << endl;
-//					Regist();
-//					break;
-//				case 2:
-//					cout << endl;
-//					cout << "Телефон записан" << endl << endl;
-//					Regist();
-//					break;
-//				case 3:
-//					cout << endl;
-//					cout << "Реквизиты записаны" << endl << endl;
-//					Regist();
-//					break;
-//				case 4:
-//					StartMenu();
-//					break;
-//				default:
-//					system("cls");
-//					cout << "Неверно введен номер действия!" << endl;
-//					system("pause");
-//					system("cls");
-//					StartMenu();
-//					break;
-//
-//				}
-//
-//			} while (reg != 4);
-//		case 0:break;
-//			break;
-//		default:
-//			system("cls");
-//			cout << "Неверно введен номер действия!" << endl;
-//			system("pause");
-//			system("cls");
-//			StartMenu();
-//			break;
+//	for (i = 0; i < n; i++) {
+//		for (j = i + 1; j < n; j++) {
+//			if (s[i].total < s[j].total) {
+//				s1 = s[i];
+//				s[i] = s[j];
+//				s[j] = s1;
+//			}
 //		}
-//	} while (_stateMenu != 0);
+//	}
+//
+//
+//	for (i = 0; i < n; i++) {
+//		printf("\n%-5d%-20s%-20s%-20s", s[i].rno, s[i].name, s[i].surname, s[i].second_name);
+//		for (j = 0; j < 3; j++) {
+//			printf("%4d", s[i].sub[j].mark);
+//		}
+//		printf("%5d%7.2f", s[i].total, s[i].per);
+//	}
+//	fclose(fp);
 //}
+//
+//void sort_in_file() {
+//
+//	student* s, s1;
+//	FILE* fp;
+//	fp = fopen("mystudents1.txt", "r");
+//	fseek(fp, 0, SEEK_END);
+//	int n = ftell(fp) / sizeof(student);
+//	int i, j;
+//	rewind(fp);
+//	s = (student*)calloc(n, sizeof(student));
+//	for (i = 0; i < n; i++)
+//		fread(&s[i], sizeof(student), 1, fp);
+//
+//	fclose(fp);
+//	for (i = 0; i < n; i++) {
+//		for (j = i + 1; j < n; j++) {
+//			if (s[i].total < s[j].total) {
+//				s1 = s[i];
+//				s[i] = s[j];
+//				s[j] = s1;
+//			}
+//		}
+//	}
+//	for (i = 0; i < n; i++) {
+//		printf("\n%-5d%-20s%-20s%-20s", s[i].rno, s[i].name, s[i].surname, s[i].second_name);
+//		for (j = 0; j < 3; j++) {
+//			printf("%4d", s[i].sub[j].mark);
+//		}
+//		printf("%5d%7.2f", s[i].total, s[i].per);
+//	}
+//
+//	fp = fopen("mystudents1.txt", "w");
+//
+//	for (i = 0; i < n; i++) {
+//		fwrite(&s[i], sizeof(student), 1, fp);
+//	}
+//
+//	fclose(fp);
+//}
+//
+
+
+
+
 # include <iostream>                    
 # include <stdio.h>     
 #include <stdlib.h>
@@ -231,18 +182,18 @@ void enter(void)
 		
 		return;
 	}
-	printf("Введите имя: ");
+	printf("Введите название книги: ");
 	gets_s(list_of_student[slot].name);
 
-	printf("Введите фамилию: ");
+	printf("Введите автора книги: ");
 	cin >> list_of_student[slot].surname;
-	printf("Введите факультет: ");
+	printf("Введите издательство: ");
 	cin >> list_of_student[slot].department;
 
-	printf("Введите группу : ");
+	printf("Введите год издания : ");
 	cin >> (list_of_student[slot].group);
 	
-	printf("Введите студенческий студента(последние 4 цифры) : ");
+	printf("Введите ID книги : ");
 	cin >> list_of_student[slot].id;
 	//= strtoul(s, '\0', 10);
 	
@@ -295,115 +246,139 @@ void search() {
 		}
 	}
 }
-//void del()
-//{
-//	int d;
-//	cout << "\nНомер строки, которую надо удалить (для удаления всех строк нажать 99)" << endl;
-//	cin >> d;
-//	if (d != 99)
-//	{
-//		for (int de1 = (d - 1); de1 < current_size; de1++)
-//			list_of_student[de1] = list_of_student[de1 + 1];
-//		current_size = current_size - 1;
-//	}
-//	if (d == 99)
-//		for (int i = 0; i < size; i++)
-//			list_of_student[i] = bad;
-//	exit;
-//}
-//
-//void change()
-//{
-//	int n, per;
-//	cout << "\nВведите номер строки" << endl; 	cin >> n;
-//	do
-//	{
-//		cout << "Введите: " << endl;
-//		cout << "1–для изменения фамилии водителя" << endl;
-//		cout << "2–для изменения года выпуска" << endl;
-//		cout << "3–для изменения марки" << endl;
-//		cout << "4–для изменения номера гаража" << endl;
-//		cout << "5–для изменения пробега" << endl;
-//		cout << "6–конец\n";
-//		cin >> per;
-//		switch (per)
-//		{
-//		case 1: cout << "Новая фамилия водителя";
-//			cin >> list_of_student[n - 1].name;   break;
-//		case 2: cout << "Новый год выпуска";
-//			cin >> list_of_student[n - 1].year_of_birth; break;
-//		case 3: cout << "Новая марка ";
-//			cin >> list_of_student[n - 1].department; break;
-//		case 4: cout << "Новый номер гаража ";
-//			cin >> list_of_student[n - 1].group; break;
-//		case 5: cout << "Новый пробег ";
-//			cin >> list_of_student[n - 1].avg; break;
-//		}
-//	} while (per != 6);
-//	exit;
-//}
-//
-//void out()
-//{
-//	int sw, n;
-//	cout << "1–вывод 1 строки" << endl;
-//	cout << "2–вывод всех строк" << endl;
-//	cin >> sw;
-//	if (sw == 1)
-//	{
-//		cout << "Номер выводимой строки " << endl;   cin >> n;  cout << endl;
-//		cout << "Фамилия водителя";
-//		cout << list_of_student[n - 1].name << endl;
-//		cout << "Год выпуска ";
-//		cout << list_of_student[n - 1].year_of_birth << endl;
-//		cout << "Марка ";
-//		cout << list_of_student[n - 1].department << endl;
-//		cout << "Номер гаража ";
-//		cout << list_of_student[n - 1].group << endl;
-//		cout << "Пробег ";
-//		cout << list_of_student[n - 1].avg << endl;
-//	}
-//	if (sw == 2)
-//	{
-//		for (int i = 0; i < current_size; i++)
-//		{
-//			cout << "Фамилия водителя ";
-//			cout << list_of_student[i].name << '\t';
-//			cout << "Год выпуска ";
-//			cout << list_of_student[i].year_of_birth << '\t';
-//			cout << "Марка ";
-//			cout << list_of_student[i].department << endl;
-//			cout << "Номер гаража ";
-//			cout << list_of_student[i].department << endl;
-//			cout << "Пробег ";
-//			cout << list_of_student[i].avg << endl;
-//		}
-//	}
-//	exit;
-//}
-//
-//int main()
-//{
-//	int choice;
-//	init_list();
-//	setlocale(LC_CTYPE, "Russian");
-//	cout << "Введите:" << endl;
-//	do
-//	{
-//
-//		cout << "1–для удаления записи" << endl;
-//		cout << "2–для ввода новой записи" << endl;
-//		cout << "3–для изменения записи" << endl;
-//		cout << "4–для вывода записи(ей)" << endl;
-//		cout << "5–для выхода" << endl;
-//		cin >> choice;
-//		switch (choice)
-//		{
-//		case 1:  del();	break;
-//		case 2:  enter_new();  break;
-//		case 3:  change();  break;
-//		case 4:  out();	break;
-//		}
-//	} while (choice != 5);
-//}
-//
+void searchMAX() {
+	int arr[MAX];
+	for (int t = 0; t < MAX; t++) {
+		arr[t] = list_of_student[t].group;
+	}
+	int max = arr[0];
+	for (int i = 0; i < MAX; ++i)
+	{
+		if (arr[i] > max)
+		{
+			max = arr[i];
+		}
+	}
+	for (int t = 0; t < MAX; t++) {
+		
+			printf("%s\n", list_of_student[t].name);
+			printf("%s\n", list_of_student[t].surname);
+			printf("%s\n", list_of_student[t].department);
+			printf("%d\n", list_of_student[t].group);
+			printf("%lu\n\n", list_of_student[t].id);
+	}
+	cout << " Самаый  старый год выпуска" << max << endl;
+
+}
+void del()
+{
+	int d;
+	cout << "\nНомер строки, которую надо удалить (для удаления всех строк нажать 99)" << endl;
+	cin >> d;
+	if (d != 99)
+	{
+		for (int de1 = (d - 1); de1 < current_size; de1++)
+			list_of_student[de1] = list_of_student[de1 + 1];
+		current_size = current_size - 1;
+	}
+	if (d == 99)
+		for (int i = 0; i < size; i++)
+			list_of_student[i] = bad;
+	exit;
+}
+
+void change()
+{
+	int n, per;
+	cout << "\nВведите номер строки" << endl; 	cin >> n;
+	do
+	{
+		cout << "Введите: " << endl;
+		cout << "1–для изменения фамилии водителя" << endl;
+		cout << "2–для изменения года выпуска" << endl;
+		cout << "3–для изменения марки" << endl;
+		cout << "4–для изменения номера гаража" << endl;
+		cout << "5–для изменения пробега" << endl;
+		cout << "6–конец\n";
+		cin >> per;
+		switch (per)
+		{
+		case 1: cout << "Новая фамилия водителя";
+			cin >> list_of_student[n - 1].name;   break;
+		case 2: cout << "Новый год выпуска";
+			cin >> list_of_student[n - 1].year_of_birth; break;
+		case 3: cout << "Новая марка ";
+			cin >> list_of_student[n - 1].department; break;
+		case 4: cout << "Новый номер гаража ";
+			cin >> list_of_student[n - 1].group; break;
+		case 5: cout << "Новый пробег ";
+			cin >> list_of_student[n - 1].avg; break;
+		}
+	} while (per != 6);
+	exit;
+}
+
+void out()
+{
+	int sw, n;
+	cout << "1–вывод 1 строки" << endl;
+	cout << "2–вывод всех строк" << endl;
+	cin >> sw;
+	if (sw == 1)
+	{
+		cout << "Номер выводимой строки " << endl;   cin >> n;  cout << endl;
+		cout << "Фамилия водителя";
+		cout << list_of_student[n - 1].name << endl;
+		cout << "Год выпуска ";
+		cout << list_of_student[n - 1].year_of_birth << endl;
+		cout << "Марка ";
+		cout << list_of_student[n - 1].department << endl;
+		cout << "Номер гаража ";
+		cout << list_of_student[n - 1].group << endl;
+		cout << "Пробег ";
+		cout << list_of_student[n - 1].avg << endl;
+	}
+	if (sw == 2)
+	{
+		for (int i = 0; i < current_size; i++)
+		{
+			cout << "Фамилия водителя ";
+			cout << list_of_student[i].name << '\t';
+			cout << "Год выпуска ";
+			cout << list_of_student[i].year_of_birth << '\t';
+			cout << "Марка ";
+			cout << list_of_student[i].department << endl;
+			cout << "Номер гаража ";
+			cout << list_of_student[i].department << endl;
+			cout << "Пробег ";
+			cout << list_of_student[i].avg << endl;
+		}
+	}
+	exit;
+}
+
+int main()
+{
+	int choice;
+	init_list();
+	setlocale(LC_CTYPE, "Russian");
+	cout << "Введите:" << endl;
+	do
+	{
+
+		cout << "1–для удаления записи" << endl;
+		cout << "2–для ввода новой записи" << endl;
+		cout << "3–для изменения записи" << endl;
+		cout << "4–для вывода записи(ей)" << endl;
+		cout << "5–для выхода" << endl;
+		cin >> choice;
+		switch (choice)
+		{
+		case 1:  del();	break;
+		case 2:  enter_new();  break;
+		case 3:  change();  break;
+		case 4:  out();	break;
+		}
+	} while (choice != 5);
+}
+
