@@ -405,8 +405,8 @@ void enter_new()
 			cout << "День рождения " << endl;
 			cin >> buf.day;
 			cout << "Имя  " << endl;
-			cin >>
-			list_of_student[current_size].month;
+			cin >>list_of_student[current_size].month;
+			
 			cout << "Место рождения  " << endl;
 			cin >> buf.examName;
 			fwrite(&buf, sizeof(buf), 1, f);
@@ -547,7 +547,7 @@ void out()
 		current_size = 0;
 		while (!feof(f))
 		{
-			cout << buf.lastName << "\t\t" << buf.examName << "\t\t" << buf.day << "\t    " << buf.month << endl;
+			cout << buf.lastName << "\t\t" << buf.examName << "\t\t" << buf.day << "\t    " << list_of_student[current_size].month << endl;
 			fread(&buf, sizeof(buf), 1, f);
 			current_size++;
 		}
